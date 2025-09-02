@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const AuthContext = createContext();
 const axiosApi = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: import.meta.env.VITE_WEB_BASE_URL,
 });
 
 export const AuthProvider = ({ children }) => {
