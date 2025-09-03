@@ -55,7 +55,7 @@ export const uploadFile = async (req, res) => {
     const joinResult = await pool.query(`
       SELECT m.*
       FROM ptsp_schema.merchant_terminal_rca m
-      INNER JOIN ptsp_schema.rca_web_upload r
+      RIGHT JOIN ptsp_schema.rca_web_upload r
       ON m.terminal_id = r.terminal_id
     `);
 
