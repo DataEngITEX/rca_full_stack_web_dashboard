@@ -5,7 +5,7 @@ import { uploadFile } from "../controllers/fileController.js";
 const router = express.Router();
 
 // Configure disk storage without renaming
-const storage = multer.diskStorage({
+const upload = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "/tmp"); // save into uploads folder
   },
