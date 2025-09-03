@@ -8,8 +8,8 @@ export const uploadFile = async (req, res) => {
     return res.status(400).json({ error: "No file uploaded" });
   }
 
-  const filePath = path.join("uploads", req.file.originalname);
-
+  //const filePath = path.join("uploads", req.file.originalname);
+  const filePath = req.file.path;
   try {
     const results = await new Promise((resolve, reject) => {
       const data = [];
