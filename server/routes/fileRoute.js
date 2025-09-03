@@ -4,17 +4,18 @@ import { uploadFile } from "../controllers/fileController.js";
 
 const router = express.Router();
 
-// Configure disk storage without renaming
-const upload = multer.diskStorage({
+// Configure disk storage
+const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "/tmp"); // save into uploads folder
+    cb(null, "/tmp"); // Render allows writing to /tmp
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname); // keep original filename
+    cb(null, file.originalname);
   },
 });
 
-///const upload = multer({ storage });
+// Create multer instance with storage
+const upload = multer({ storage });
 
 // Route for CSV upload
 router.post("/uploadFile", upload.single("file"), uploadFile);
