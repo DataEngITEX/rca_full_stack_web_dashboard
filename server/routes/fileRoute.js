@@ -7,14 +7,14 @@ const router = express.Router();
 // Configure disk storage without renaming
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/"); // save into uploads folder
+    cb(null, "/tmp"); // save into uploads folder
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname); // keep original filename
   },
 });
 
-const upload = multer({ storage });
+///const upload = multer({ storage });
 
 // Route for CSV upload
 router.post("/uploadFile", upload.single("file"), uploadFile);
